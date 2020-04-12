@@ -6,6 +6,7 @@ Angular is built with testing in mind and this project was build with Test Drive
 
 * [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
 * [LESS](http://lesscss.org/)
+* [UIkit](https://getuikit.com/)
 
 ## Development server
 
