@@ -1,6 +1,11 @@
-# TddAngular
+# Test Driven Development with Angular
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
+Angular is built with testing in mind and this project was build with Test Driven Development techniques. Clone this repository and use it to learn about Test Driven Development with Angular.
+
+## Technology
+
+* [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
+* [LESS](http://lesscss.org/)
 
 ## Development server
 
