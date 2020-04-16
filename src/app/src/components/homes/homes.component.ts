@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { of } from 'rxjs';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-homes',
@@ -10,29 +11,13 @@ export class HomesComponent implements OnInit {
 
   homes$;
 
-  constructor() { }
+  constructor(private dataService: DataService) { }
 
   ngOnInit() {
 
-    // this.homes$ = this.dataService.getHomes$();
-    // hardcoded service
-    this.homes$ = of([
-      {
-        title: 'Home 1',
-        image: 'assets/listing.jpg',
-        location: 'west palm beach'
-      },
-      {
-        title: 'Home 2',
-        image: 'assets/listing.jpg',
-        location: 'waterbury'
-      },
-      {
-        title: 'Home 3',
-        image: 'assets/listing.jpg',
-        location: 'orlando'
-      }
-    ]);
+    this.homes$ = this.dataService.getHomes$();
+    // Mock service
+
 
   }
 
