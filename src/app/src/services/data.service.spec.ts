@@ -1,12 +1,50 @@
 import { TestBed } from '@angular/core/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 import { DataService } from './data.service';
+import { HttpClient } from '@angular/common/http';
+import { of } from 'rxjs';
+
+let httpClient: HttpClient;
+let dataService: DataService;
 
 describe('DataService', () => {
-  beforeEach(() => TestBed.configureTestingModule({}));
+  beforeEach(() => TestBed.configureTestingModule({
+    imports: [HttpClientTestingModule]
+  }));
 
-  it('should be created', () => {
-    const service: DataService = TestBed.get(DataService);
-    expect(service).toBeTruthy();
+  it('should return the list of homes', () => {
+    // Spy on & mock the HttpClient
+    httpClient = TestBed.get(HttpClient);
+    const homesMock = [
+      {
+        title: 'Home 1',
+        image: 'assets/listing.jpg',
+        location: 'west palm beach',
+      },
+      {
+        title: 'Home 2',
+        image: 'assets/listing.jpg',
+        location: 'waterbury',
+      },
+      {
+        title: 'Home 3',
+        image: 'assets/listing.jpg',
+        location: 'orlando',
+      },
+    ];
+    spyOn(httpClient, 'get').and.returnValue(of(homesMock));
+
+    // Use service to get homes
+    dataService = TestBed.get(DataService);
+    const spy = jasmine.createSpy('spy');
+    dataService.getHomes$().subscribe(spy);
+
+    // Verify that service has returned the mocked data
+    expect(spy).toHaveBeenCalledWith(homesMock);
+
+    // Verify that service called the correct HTTP endpoint
+    expect(httpClient.get).toHaveBeenCalledWith('assets/homes.json');
+
   });
 });
