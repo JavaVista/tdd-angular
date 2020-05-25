@@ -1,20 +1,25 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 
 import { BookComponent } from "./book.component";
-import { MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from "@angular/material/dialog";
+
 
 describe("BookComponent", () => {
   let component: BookComponent;
   let fixture: ComponentFixture<BookComponent>;
   let dialogData;
+  const el = (selector) => fixture.nativeElement.querySelector(selector);
+
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [BookComponent],
-      providers: [{
-        provide: MAT_DIALOG_DATA,
-        useValue: {}
-      }]
+      providers: [
+        {
+          provide: MAT_DIALOG_DATA,
+          useValue: {},
+        },
+      ],
     }).compileComponents();
   }));
 
@@ -29,15 +34,15 @@ describe("BookComponent", () => {
   });
 
   it("should show a title", () => {
-
     expect(
-      fixture.nativeElement.querySelector('[data-test="title"]').textContent).toContain('Home 1');
+      el('[data-test="title"]').textContent
+    ).toContain("Home 1");
   });
 
-  // should show a price
-  // it('should create', () => {
+  // it('should show a price', () => {
   //   expect(component).toBeTruthy();
   // });
+
   // should show check in date field
   // it('should create', () => {
   //   expect(component).toBeTruthy();
