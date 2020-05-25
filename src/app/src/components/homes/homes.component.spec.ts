@@ -57,19 +57,20 @@ describe('HomesComponent', () => {
   });
 
   it('should show book button', () => {
+    // Arrange
     const home = fixture.nativeElement.querySelector('[data-test="home"]');
-
+    // Act Assert
     expect(home.querySelector('[data-test="book-btn"]')).toBeTruthy();
   });
 
   it('should use dialog service to open modal when clicking book button', () => {
-  // grab the button to click
+  // ARRANGE: grab the button to click
   const bookBtn = fixture.nativeElement.querySelector('[data-test="home"] button');
 
-  // click the button
+  // ACT: click the button
   bookBtn.click();
 
-  // assert the dialog service was used to open modal
+  // ASSERT: the dialog service was used to open modal
   expect(dialogService.open).toHaveBeenCalled();
   });
 });
