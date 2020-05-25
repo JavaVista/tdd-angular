@@ -22,10 +22,10 @@ export class HomesComponent implements OnInit {
     // Mock service
   }
 
-  openDialog() {
+  openDialog(home) {
     this.dialogService.open(BookComponent, {
       width: "250px",
-      data: {},
+      data: { home },
     });
   }
 }
