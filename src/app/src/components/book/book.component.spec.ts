@@ -45,14 +45,17 @@ describe("BookComponent", () => {
     ).toContain("$105");
   });
 
-  // should show check in date field
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
-  // should show check out date field
-  // it('should create', () => {
-  //   expect(component).toBeTruthy();
-  // });
+  it('should show check in date field', () => {
+    expect(
+      el('[data-test="check-in"]')
+    ).toBeTruthy();
+  });
+
+  it('should show check out date field', () => {
+    expect(
+      el('[data-test="check-out"]')
+    ).toBeTruthy();
+  });
   // should show total
   // it('should create', () => {
   //   expect(component).toBeTruthy();
