@@ -39,9 +39,11 @@ describe("BookComponent", () => {
     ).toContain("Home 1");
   });
 
-  // it('should show a price', () => {
-  //   expect(component).toBeTruthy();
-  // });
+  it('should show a price', () => {
+    expect(
+      el('[data-test="price"]').textContent
+    ).toContain("$105");
+  });
 
   // should show check in date field
   // it('should create', () => {
